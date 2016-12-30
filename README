@@ -1,0 +1,30 @@
+Signal Processing Library (SPL)
+
+The web site for the SPL software is as follows:
+
+    http://www.ece.uvic.ca/~mdadams/SPL
+
+This software is also associated with the open-access textbook:
+
+    M. D. Adams, Multiresolution Signal and Geometry Processing:
+    Filter Banks, Wavelets, and Subdivision, University of Victoria
+    Press, Victoria, BC, Canada, Sept. 2013, xxxviii + 538 pages.
+    ISBN 978-1-55058-507-0 (paperback).
+    ISBN 978-1-55058-508-7 (PDF).
+
+This textbook can downloaded (in PDF format) from:
+
+    http://www.ece.uvic.ca/~mdadams/waveletbook
+
+Information on how to install this software can be found in the file INSTALL.
+
+The reference manual for this library can be found in the directory doc.
+The manual is provided in three formats:
+    1) HTML format (in doc/html)
+       Open the file index.html in your browser.
+    2) PDF format (in doc/manual.pdf)
+    3) LaTeX format (in doc/latex)
+
+Any bugs reports should be sent to:
+    Michael Adams
+    mdadams@ece.uvic.ca

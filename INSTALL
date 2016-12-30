@@ -1,0 +1,131 @@
+Installing the SPL Software
+
+The SPL software should build on most Linux systems with a C++ compiler
+that supports C++11.
+
+In what follows, $top_dir denotes the top-level directory of the SPL software
+distribution (i.e., the directory containing the file named configure).
+To build the software, the following steps are required (in order):
+
+1. Installing Prerequisite Libraries
+
+Ensure that all of the libraries needed by the SPL software are installed
+on your system.  This includes the following libraries:
+
+    1) Computational Geometry Algorithms Library (CGAL)
+    http://www.cgal.org
+
+    2) OpenGL Utility Toolkit (GLUT)
+    http://www.opengl.org/resources/libraries/glut/
+    http://freeglut.sourceforge.net
+
+    3) Sndfile Library
+    http://www.mega-nerd.com/libsndfile
+
+On a Linux system, the installation of the above libraries (as well as any
+of their dependencies) is most easily accomplished by using the appropriate
+package manager.  For example, on a Fedora system (which uses the Yum
+package manager), this might be accomplished by typing something like:
+
+    yum install CGAL CGAL-devel CGAL-demos-source mpfr-devel
+    yum install freeglut freeglut-devel
+    yum install libsndfile libsndfile-devel
+
+Note that the specific package names required by the package manager will
+vary from one version of Fedora to another and may not exactly match those
+appearing above.  On an Ubuntu system, the Apt package manager would probably
+need to be used (via the apt-get command).
+
+2. Setting Working Directory
+
+Set the current working directory to the top-level directory of the SPL
+software distribution.  To set the current working directory as required,
+type:
+
+    cd $top_dir
+
+where $top_dir is as defined above.
+
+3. Configuring Software
+
+Perform the initial configuration of the software.  This is accomplished by
+running the configure script.  This process allows important information
+about the system configuration to be determined.  The configure script
+also generates makefiles from makefile templates.  In theory, it should
+not be necessary to manually edit any of the makefile templates (i.e.,
+the Makefile.in files) used by the configure program.
+
+The configure script can accept numerous options.  These options can be
+listed by invoking the configure command with the --help option.  To invoke
+the configure program, type:
+
+    ./configure $options
+
+where $options denotes the desired options (if any) for configure.
+The options that are most frequently used are as follows:
+
+    --prefix=$dir_name
+        Set the directory into which the software will be installed to
+        $dir_name.  For example, to configure the software so that it will
+        be installed into the directory /home/jdoe/local/SPL, one would
+        use the option "--prefix=/home/jdoe/local/SPL".
+
+    CXX=$cxx_command
+        Set the command to use for the C++ compiler to $cxx_command.
+
+    CXXFLAGS=$cxx_flags
+        Set the C++ compiler flags to $cxx_flags.
+        It may be necessary to force the GNU C++ compiler flags to include the
+        option -frounding-math in order for applications using CGAL to execute
+        correctly.  This can be accomplished by adding the above option.
+        [NOTE:  Some versions of the SPL library automatically enable this
+        compiler option.]
+
+    CC=$cc_command
+        Set the command to use for the C compiler to $cc_command.
+        NOTE: This option should not be needed.
+
+    CFLAGS=$c_flags
+        Set the C compiler options to $c_flags.
+        NOTE: This option should not be needed.
+
+Unless you know what you are doing, it is recommended that you not use
+options for configure other than those listed above.
+
+4. Building Software
+
+Compile and link the software.  This is accomplished via the make command.
+To run the make command, type:
+
+    make
+
+5. Testing Software (Prior to Installation)
+
+Run some basic sanity checks on the software, prior to installation.
+Although this step is not strictly required, it is strongly recommended
+that this step not be skipped.  The test the software, type:
+
+    make check
+
+Some tests may require considerable time to complete.  So, be prepared to
+go for a coffee break.  After all of the tests have run, a message should
+be printed that indicates how many tests passed of those that were run.
+If any of the tests failed, this is an indication that something is wrong
+and the SPL software is not working reliably.  If such a situation arises,
+it is likely due to either an error made by the person installing the
+software or a bug in the software itself.
+
+Some of the tests may require graphics capabilities.  If the graphics
+display is not on the local machine, this can sometimes cause problems.
+For example, some tests may fail due to bugs in the graphics libraries
+that handle remote displays.  In such cases, it may be desirable to disable
+tests that require graphics capabilities.  To do this, set the environment
+variable SPL_MAKE_CHECK_ENABLE_GRAPHICS to 0 (before running "make check").
+
+6. Installing Software
+
+Install the software.  This step may require special administrator
+privileges depending on the target directory for installation.  To install
+the executables, libraries, include files, and other auxiliary data, type:
+
+    make install
