@@ -1,5 +1,7 @@
 echo on
 
+exit 0
+
 set source_dir=%APPVEYOR_BUILD_FOLDER%
 
 set build_dir_shared=c:\tmp\SPL\build\shared
