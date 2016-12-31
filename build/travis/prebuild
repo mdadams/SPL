@@ -11,8 +11,9 @@ linux)
 	sudo apt-get install libcgal10
 	;;
 osx)
-	#brew update
-	#brew outdated bash || brew upgrade bash
+	brew update
+	brew outdated bash || brew upgrade bash
+	brew outdated cgal || brew upgrade cgal
 	;;
 *)
 	;;
