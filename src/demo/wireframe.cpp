@@ -33,7 +33,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <GL/glut.h>
 #include <CGAL/Cartesian.h>
 #include <CGAL/Polyhedron_3.h>
 #include <CGAL/IO/Polyhedron_iostream.h>
@@ -41,6 +40,11 @@
 #include <SPL/cgalUtil.hpp>
 #include <SPL/math.hpp>
 #include <SPL/Arcball.hpp>
+#if defined(SPL_HAVE_GL_GLUT_H)
+#include <GL/glut.h>
+#else
+#include <glut.h>
+#endif
 
 using SPL::norm;
 using SPL::radToDeg;
