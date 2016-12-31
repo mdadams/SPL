@@ -1,9 +1,9 @@
 configure_file(
-	"${CMAKE_CURRENT_SOURCE_DIR}/../include/SPL/config.hpp.in.cmake"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../include/SPL/config.hpp.in"
 	"${CMAKE_CURRENT_BINARY_DIR}/../include/SPL/config.hpp"
 )
 configure_file(
-	"${CMAKE_CURRENT_SOURCE_DIR}/../include/SPL/version.hpp.in.cmake"
+	"${CMAKE_CURRENT_SOURCE_DIR}/../include/SPL/version.hpp.in"
 	"${CMAKE_CURRENT_BINARY_DIR}/../include/SPL/version.hpp"
 )
 
