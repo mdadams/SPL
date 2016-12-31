@@ -13,6 +13,8 @@ project(SPL LANGUAGES CXX C)
 
 ################################################################################
 
+set(SPL_FULL_NAME "Signal/Geometry Processing Library (SPL)")
+
 set(SPL_VERSION_MAJOR 1)
 set(SPL_VERSION_MINOR 2)
 set(SPL_VERSION_PATCH 0)

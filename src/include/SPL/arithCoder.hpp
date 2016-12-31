@@ -170,7 +170,7 @@ public:
 	/*!
 	 * \brief Destroy an arithmetic encoder.
 	 *
-	 * \detail
+	 * \details
 	 * This destructor destroys an arithmetic encoder.
 	 */
 	~ArithEncoder();
@@ -185,7 +185,7 @@ public:
 	 *
 	 * @param out  The output bit stream.
 	 *
-	 * \detail
+	 * \details
 	 * This function sets the bit stream to which arithmetic encoder
 	 * output is to be sent.
 	 */
@@ -195,7 +195,7 @@ public:
 	 * \brief Get the bit stream to which arithmetic encoder output is
 	 * to be sent.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the bit stream to which arithmetic encoder
 	 * output is to be sent.
 	 *
@@ -207,7 +207,7 @@ public:
 	/*!
 	 * \brief Get the number of symbols encoded so far.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the number of symbols encoded so far by the
 	 * arithmetic encoder.
 	 *
@@ -220,7 +220,7 @@ public:
 	 * \brief Get the number of bits of output generated so far
 	 * including bits awaiting output.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the number of bits of output generated so far
 	 * by the arithmetic encoder, including bits awaiting output.
 	 *
@@ -236,7 +236,7 @@ public:
 	/*!
 	 * \brief Start a code word.
 	 *
-	 * \detail
+	 * \details
 	 * This function starts the encoding of a new code word.
 	 * This function must be called before attempting to encode any symbols.
 	 *
@@ -248,7 +248,7 @@ public:
 	/*!
 	 * \brief Terminate the code word.
 	 *
-	 * \detail
+	 * \details
 	 * This function terminates the encoding of a code word.
 	 *
 	 * \return
@@ -259,7 +259,7 @@ public:
 	/*!
 	 * \brief Encode a symbol.
 	 *
-	 * \detail
+	 * \details
 	 * The function encodes the symbol associated with the range specified.
 	 * The symbol to be coded has the corresponding interval
 	 * [lowFreq, highFreq) / totalFreq.
@@ -398,7 +398,7 @@ public:
 	 *
 	 * \param in  The input bit stream.
 	 *
-	 * \detail
+	 * \details
 	 * This constructor creates an arithmetic decoder whose input
 	 * is read from the specified bit stream.
 	 */
@@ -407,7 +407,7 @@ public:
 	/*!
 	 * \brief Destroy an arithmetic decoder.
 	 *
-	 * \detail
+	 * \details
 	 * This destructor destroys an arithmetic decoder.
 	 */
 	~ArithDecoder();
@@ -419,7 +419,7 @@ public:
 	/*!
 	 * \brief Get the bit stream from which input data is read.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the bit stream from which decoder input
 	 * is to be read.
 	 *
@@ -433,7 +433,7 @@ public:
 	 *
 	 * \param in  The input bit stream.
 	 *
-	 * \detail
+	 * \details
 	 * This function sets the bit stream from which input data is to be read.
 	 */
 	void setInput(InputBitStream* in);
@@ -441,7 +441,7 @@ public:
 	/*!
 	 * \brief Get the number of bits that have been read so far.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the number of bits of input that have been
 	 * read so far by the arithmetic decoder.
 	 *
@@ -453,7 +453,7 @@ public:
 	/*!
 	 * \brief Get the number of symbols decoded so far.
 	 *
-	 * \detail
+	 * \details
 	 * This function get the number of symbols decoded so far.
 	 *
 	 * \return
@@ -468,7 +468,7 @@ public:
 	/*!
 	 * \brief Start a code word.
 	 *
-	 * \detail
+	 * \details
 	 * This function starts the decoding of a new code word.
 	 * This function must be called before attempting to decode any symbols.
 	 *
@@ -480,7 +480,7 @@ public:
 	/*!
 	 * \brief Terminate a code word (to synchronize with the encoder).
 	 *
-	 * \detail
+	 * \details
 	 * This function terminates the decoding of a code word.
 	 *
 	 * \return
@@ -494,7 +494,7 @@ public:
 	 * \param totalFreq  The total frequency count.
 	 * \param target  The decoded code value.
 	 *
-	 * \detail
+	 * \details
 	 * This function decodes a symbol.
 	 * The reference parameter target is set to the decoded code value.
 	 * This value can then be mapped to a particular symbol.
@@ -511,7 +511,7 @@ public:
 	 * \param highFreq  The high end of the interval.
 	 * \param totalFreq  The total frequency count.
 	 *
-	 * \detail
+	 * \details
 	 * This function adjusts the current interval after decoding a
 	 * symbol.
 	 * This function must be called after each symbol is decoded.
@@ -1263,7 +1263,7 @@ public:
 	 * \param numContexts  The number of contexts.
 	 * \param out  The output bit stream.
 	 *
-	 * \detail
+	 * \details
 	 * This constructor creates an arithmetic encoder with the
 	 * number of contexts being \p numContexts that sends output to
 	 * the bit stream \p out.
@@ -1273,7 +1273,7 @@ public:
 	/*!
 	 * \brief Destroy an arithmetic encoder.
 	 *
-	 * \detail
+	 * \details
 	 * This destructor destroys an arithmetic encoder.
 	 */
 	~BinArithEncoder();
@@ -1285,7 +1285,7 @@ public:
 	/*!
 	 * \brief Get the number of contexts.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the number of contexts employed by the
 	 * arithmetic encoder.
 	 *
@@ -1297,7 +1297,7 @@ public:
 	/*!
 	 * \brief Get the number of symbols output so far.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the number of symbols output so far by the
 	 * arithmetic encoder.
 	 *
@@ -1309,7 +1309,7 @@ public:
 	/*!
 	 * \brief Get the number of bits output so far.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the number of bits output so far by the
 	 * arithmetic encoder.
 	 *
@@ -1323,7 +1323,7 @@ public:
 	 *
 	 * \param out  The output bit stream.
 	 *
-	 * \detail
+	 * \details
 	 * This function sets the bit stream to which encoded data should
 	 * be written.
 	 */
@@ -1332,7 +1332,7 @@ public:
 	/*!
 	 * \brief Get the bit stream to which encoded data should be written.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the bit stream to which encoded data should be
 	 * written.
 	 *
@@ -1367,7 +1367,7 @@ public:
 	 * \param[out] maxFreq  The maximum normalizing frequency count.
 	 * \param[out] adaptive  The adaptivity flag.
 	 *
-	 * \detail
+	 * \details
 	 * This function queries the state of the context with the
 	 * context ID \p contextId, and sets
 	 * the parameters \p oneFreq, \p totalFreq, \p maxFreq, and \p adaptive
@@ -1386,7 +1386,7 @@ public:
 	/*!
 	 * \brief Start a code word.
 	 *
-	 * \detail
+	 * \details
 	 * This function starts the encoding of a new code word.
 	 * This function must be called before attempting to encode any symbols.
 	 *
@@ -1401,7 +1401,7 @@ public:
 	 * \param contextId  The ID of the context to be used for encoding.
 	 * \param binVal  The symbol to be encoded.
 	 *
-	 * \detail
+	 * \details
 	 * This function encodes the symbol \p binVal using the context
 	 * specified by \p contextId.
 	 * The value of \p contextId must be from 0 to n - 1 (inclusive),
@@ -1419,7 +1419,7 @@ public:
 	 *
 	 * \param binVal  The symbol to be encoded.
 	 *
-	 * \detail
+	 * \details
 	 * This function encodes the symbol \p binVal in bypass mode
 	 * (i.e., using a fixed probability distribution with all symbols
 	 * being equiprobable).
@@ -1433,7 +1433,7 @@ public:
 	/*!
 	 * \brief Terminate the code word.
 	 *
-	 * \detail
+	 * \details
 	 * This function terminates the encoding of the current arithmetic
 	 * code word.
 	 *
@@ -1589,7 +1589,7 @@ public:
 	 * \param numContexts  The number of contexts.
 	 * \param in  The input bit stream.
 	 *
-	 * \detail
+	 * \details
 	 * This function creates an arithmetic decoder with the
 	 * number of contexts being \p numContexts that receives input
 	 * from the bit stream \p in.
@@ -1599,7 +1599,7 @@ public:
 	/*!
 	 * \brief Destroy a decoder.
 	 *
-	 * \detail
+	 * \details
 	 * This function destroys an arithmetic decoder.
 	 */
 	~BinArithDecoder();
@@ -1611,7 +1611,7 @@ public:
 	/*!
 	 * \brief Get the number of symbols decoded so far.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the number of symbols decoded so far by the
 	 * arithmetic decoder.
 	 *
@@ -1623,7 +1623,7 @@ public:
 	/*!
 	 * \brief Get the number of bits read so far.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the number of bits read so far by the arithmetic
 	 * decoder.
 	 *
@@ -1637,7 +1637,7 @@ public:
 	 *
 	 * \param in  The input bit stream.
 	 *
-	 * \detail
+	 * \details
 	 * This function sets the bit stream from which to read encoded data
 	 * to \p in.
 	 */
@@ -1646,7 +1646,7 @@ public:
 	/*!
 	 * \brief Get the bit stream from which to read encoded data.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the bit stream from which to read encoded data.
 	 *
 	 * \return
@@ -1661,7 +1661,7 @@ public:
 	/*!
 	 * \brief Get the number of contexts.
 	 *
-	 * \detail
+	 * \details
 	 * This function gets the number of contexts employed by the arithmetic
 	 * decoder.
 	 *
@@ -1687,7 +1687,7 @@ public:
 	 * \param[out] maxFreq  The maximum normalizing frequency count.
 	 * \param[out] adaptive  The adaptivity flag.
 	 *
-	 * \detail
+	 * \details
 	 * This function queries the state of the context with the
 	 * context ID \p contextId, and sets
 	 * the parameters \p oneFreq, \p totalFreq, \p maxFreq, and \p adaptive
@@ -1706,7 +1706,7 @@ public:
 	/*!
 	 * \brief Start a code word.
 	 *
-	 * \detail
+	 * \details
 	 * This function starts the decoding of a new arithmetic code word.
 	 * This function must be called before attempting to decode any symbols.
 	 *
@@ -1718,7 +1718,7 @@ public:
 	/*!
 	 * \brief Terminate the code word (for synchonization with the encoder).
 	 *
-	 * \detail
+	 * \details
 	 * This function terminates the decoding of the current arithmetic code
 	 * word.
 	 *
@@ -1732,7 +1732,7 @@ public:
 	 *
 	 * \param contextId  The ID of the context to be used for decoding.
 	 *
-	 * \detail
+	 * \details
 	 * The function decodes a symbol using the context specified by
 	 * \p contextId.
 	 * The value of \p contextId must be from 0 to n - 1 (inclusive),
@@ -1748,7 +1748,7 @@ public:
 	 * \brief Decode a symbol in bypass mode (i.e., using a fixed
 	 * probability distribution with all symbols being equiprobable).
 	 *
-	 * \detail
+	 * \details
 	 * This function decodes a symbol in bypass mode (i.e., using a fixed
 	 * probability distribution with all symbols being equiprobable).
 	 *

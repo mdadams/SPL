@@ -26,6 +26,6 @@ The documentation for each of the various modules can be found in the
 
 \page install Installation
 
-\verbinclude ../../INSTALL
+\verbinclude INSTALL
 
 */
