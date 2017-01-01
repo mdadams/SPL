@@ -86,11 +86,11 @@ cmake \
   -H"$source_dir" -B"$build_dir" || \
   panic "cmake failed"
 
-(cd "$build_dir" && make clean all) || \
-  panic "make clean/all failed"
+(cd "$build_dir" && make clean) || \
+  panic "make clean failed"
 
-(cd "$build_dir/doc/latex" && make clean all) || \
-  panic "make clean/all in doc/latex failed"
+(cd "$build_dir" && make manual_pdf doc) || \
+  panic "make doc failed"
 
 mv "$build_dir/doc/html" "$source_dir/doc/html" || \
   panic "cannot move html"
