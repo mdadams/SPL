@@ -1,7 +1,11 @@
 Installing the SPL Software
+===========================
 
 The SPL software should build on most Linux systems with a C++ compiler that
 supports C++14.
+
+Installation Process
+--------------------
 
 In what follows, $SOURCE_DIR denotes the top-level directory of the SPL
 software distribution (i.e., the directory containing the INSTALL file that
@@ -124,4 +128,3 @@ SPL_ENABLE_LSAN
 SPL_ENABLE_MSAN
         Enable the Memory Sanitizer.
         Valid values: true or false
-
