@@ -50,7 +50,10 @@ Generate the build files for the native build tool on your system using
 the command:
 
     cd $BUILD_DIR
-    cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR $SOURCE_DIR
+    cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR $SOURCE_DIR $OPTIONS
+
+where $OPTIONS corresponds to zero or more -D options as described the
+later section titled "Cmake Options".
 
 3. Build the software.
 
@@ -90,3 +93,35 @@ $INSTALL_DIR).  To install the executables, libraries, include files, and
 other auxiliary data, use the command:
 
     cmake --build $BUILD_DIR --target install
+
+Cmake Options
+-------------
+
+The option OPTION can be set to the value VALUE with a command-line option
+of the form -DOPTION=VALUE
+The following options are supported:
+
+CMAKE_INSTALL_PREFIX
+    Specify the installation directory.
+        Value: A directory name.
+
+CMAKE_BUILD_TYPE
+    Specify the build type (i.e., release or debug).
+    Valid values: Debug or Release
+
+SPL_ENABLE_ASAN
+        Enable the Address Sanitizer.
+        Valid values: true or false
+
+SPL_ENABLE_USAN
+        Enable the Undefined-Behavior Sanitizer.
+        Valid values: true or false
+
+SPL_ENABLE_LSAN
+        Enable the Leak Sanitizer.
+        Valid values: true or false
+
+SPL_ENABLE_MSAN
+        Enable the Memory Sanitizer.
+        Valid values: true or false
+

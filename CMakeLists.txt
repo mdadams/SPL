@@ -33,6 +33,7 @@ include(CheckFunctionExists)
 include(CheckCXXSourceCompiles)
 include(CTest)
 include(EnableAssertions)
+include(Sanitizers)
 
 ################################################################################
 
