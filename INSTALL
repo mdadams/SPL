@@ -4,8 +4,8 @@ Installing the SPL Software
 The SPL software should build on most Linux systems with a C++ compiler that
 supports C++14.
 
-Installation Process
---------------------
+Installation Steps
+------------------
 
 In what follows, $SOURCE_DIR denotes the top-level directory of the SPL
 software distribution (i.e., the directory containing the INSTALL file that
@@ -29,10 +29,14 @@ on your system.  This includes the following libraries:
     3) Sndfile Library
     http://www.mega-nerd.com/libsndfile
 
-On a Linux system, the installation of the above libraries (as well as any
-of their dependencies) is most easily accomplished by using the appropriate
-package manager.  For example, on a Fedora system, which uses the DNF package
-manager, this might be accomplished by typing something like:
+Some platforms provide a package manager for installing software packages and
+their dependencies.  For example, Fedora provides the DNF package manager,
+which is accessed via the dnf command, and Ubuntu provides the Apt package
+manager, which is accessed via the apt-get command.  If a package manager
+is available on your system, it can likely be used to simplify the process
+of installing some of the above prerequisite libraries.  For example, on a
+Fedora system with the DNF package manager, some of the above libraries
+could be installed by using a sequence of commands resembling the following:
 
     dnf install CGAL CGAL-devel CGAL-demos-source mpfr-devel
     dnf install freeglut freeglut-devel
@@ -40,8 +44,7 @@ manager, this might be accomplished by typing something like:
 
 Note that the specific package names required by the package manager will
 vary from one version of Fedora to another and may not exactly match those
-appearing above.  On an Ubuntu system, the Apt package manager would probably
-need to be used (via the apt-get command).
+appearing above.
 
 2. Generate the native build files.
 
@@ -54,9 +57,9 @@ Generate the build files for the native build tool on your system using
 the command:
 
     cd $BUILD_DIR
-    cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR $SOURCE_DIR $OPTIONS
+    cmake -DCMAKE_INSTALL_PREFIX=$INSTALL_DIR $OPTIONS $SOURCE_DIR
 
-where $OPTIONS corresponds to zero or more -D options as described the
+where $OPTIONS corresponds to zero or more -D options as described in the
 later section titled "Cmake Options".
 
 3. Build the software.
