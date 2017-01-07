@@ -11,8 +11,13 @@ In what follows, $SOURCE_DIR denotes the top-level directory of the SPL
 software distribution (i.e., the directory containing the INSTALL file that
 you are currently reading), $BUILD_DIR denote denotes a directory (which is
 either empty or to be newly created) to be used for building the software,
-and $INSTALL_DIR denotes the directory under which the software should be
-installed.  To build the software, the following steps are required (in order):
+and $INSTALL_DIR denotes the directory under which the software should
+be installed.
+
+Note that in-source builds are not supported.  So, $BUILD_DIR must be
+different from $SOURCE_DIR.
+
+To build the software, the following steps are required (in order):
 
 1. Install the prerequisite libraries.
 
