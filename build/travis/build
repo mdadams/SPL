@@ -156,8 +156,16 @@ else
 			cmake_opts+=(-DSPL_LIBRARIES="SPL")
 			CMAKE_PREFIX_PATH=$cmake_prefix_path \
 			  cmake "${cmake_opts[@]}" || panic "cmake failed"
+			cmake_opts=()
+			cmake_opts+=(--build "$test_dir")
+			cmake_opts+=(--clean-first)
+			cmake_opts+=(--)
+			case "$build_tool" in
+			make)
+				cmake_opts+=("VERBOSE=1");;
+			esac
 			CMAKE_PREFIX_PATH=$cmake_prefix_path \
-			  cmake --build "$test_dir" --clean-first || \
+			  cmake "${cmake_opts[@]}" || \
 			  panic "build failed"
 			#for target in clean all; do
 			#	(cd "$test_dir" && make "$target" VERBOSE=1) || \
