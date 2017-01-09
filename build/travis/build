@@ -151,9 +151,9 @@ else
 			cmake_opts=()
 			cmake_opts+=(-H"$test_dir" -B"$test_dir")
 			cmake_opts+=(-G "Unix Makefiles")
-			cmake_opts+=(-DSPL_INCLUDE_DIRS="$install_dir/include")
-			cmake_opts+=(-DSPL_LIBRARY_DIRS="$install_dir/lib")
-			cmake_opts+=(-DSPL_LIBRARIES="SPL")
+			#cmake_opts+=(-DSPL_INCLUDE_DIRS="$install_dir/include")
+			#cmake_opts+=(-DSPL_LIBRARY_DIRS="$install_dir/lib")
+			#cmake_opts+=(-DSPL_LIBRARIES="SPL")
 			CMAKE_PREFIX_PATH=$cmake_prefix_path \
 			  cmake "${cmake_opts[@]}" || panic "cmake failed"
 			cmake_opts=()
@@ -164,8 +164,8 @@ else
 			make)
 				cmake_opts+=("VERBOSE=1");;
 			esac
-			CMAKE_PREFIX_PATH=$cmake_prefix_path \
-			  cmake "${cmake_opts[@]}" || \
+			#CMAKE_PREFIX_PATH=$cmake_prefix_path \
+			cmake "${cmake_opts[@]}" || \
 			  panic "build failed"
 			#for target in clean all; do
 			#	(cd "$test_dir" && make "$target" VERBOSE=1) || \
