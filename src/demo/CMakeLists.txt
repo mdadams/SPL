@@ -1,5 +1,5 @@
 link_libraries(
-	spl
+	SPL
 	${CGAL_LIBRARY}
 	${OPENGL_LIBRARIES}
 	${GLUT_LIBRARIES}

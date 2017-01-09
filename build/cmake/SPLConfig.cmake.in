@@ -1,0 +1,13 @@
+@PACKAGE_INIT@
+
+# Note: The following assumes only one include directory, one library
+# directory, and one library.
+set_and_check(SPL_INCLUDE_DIRS
+  "@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_INCLUDEDIR@")
+set_and_check(SPL_LIBRARY_DIRS
+  "@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_LIBDIR@")
+set_and_check(SPL_SYSCONFIG_DIR
+  "${SPL_LIBRARY_DIRS}/cmake/@PROJECT_NAME@")
+find_library(SPL_LIBRARIES SPL HINTS ${SPL_LIBRARY_DIRS})
+
+#check_required_components(@PROJECT_NAME@)

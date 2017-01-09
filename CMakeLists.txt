@@ -34,6 +34,7 @@ include(CheckCXXSourceCompiles)
 include(CTest)
 include(EnableAssertions)
 include(Sanitizers)
+include(CMakePackageConfigHelpers)
 
 ################################################################################
 
@@ -90,7 +91,7 @@ check_cxx_source_compiles("
 " SPL_HAVE_TR1_BESSEL)
 
 include_directories(
-  ${SPL_INCLUDE_DIR}
+  ${SPL_INCLUDE_DIRS}
   ${CGAL_INCLUDE_DIR}
   ${Boost_INCLUDE_DIRS}
   ${GLUT_INCLUDE_DIR}
@@ -98,6 +99,27 @@ include_directories(
   ${GMP_INCLUDE_DIR}
   ${SNDFILE_INCLUDE_DIRS}
 )
+
+################################################################################
+
+set(SPL_CONFIG_DIR
+  "${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}/cmake/SPL")
+
+configure_package_config_file(
+  build/cmake/SPLConfig.cmake.in
+  ${CMAKE_CURRENT_BINARY_DIR}/build/cmake/SPLConfig.cmake
+  INSTALL_DESTINATION "${SPL_CONFIG_DIR}"
+  NO_CHECK_REQUIRED_COMPONENTS_MACRO)
+
+write_basic_package_version_file(
+  ${CMAKE_CURRENT_BINARY_DIR}/build/cmake/SPLConfigVersion.cmake
+  VERSION ${SPL_VERSION}
+  COMPATIBILITY SameMajorVersion)
+
+install(FILES
+  ${CMAKE_CURRENT_BINARY_DIR}/build/cmake/SPLConfig.cmake
+  ${CMAKE_CURRENT_BINARY_DIR}/build/cmake/SPLConfigVersion.cmake
+  DESTINATION "${SPL_CONFIG_DIR}")
 
 ################################################################################
 

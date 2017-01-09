@@ -39,11 +39,11 @@ set(spl_headers
 	${CMAKE_CURRENT_BINARY_DIR}/../include/SPL/version.hpp
 )
 
-add_library(spl ${spl_sources} ${spl_headers})
-target_include_directories(spl PUBLIC 
+add_library(SPL ${spl_sources} ${spl_headers})
+target_include_directories(SPL PUBLIC 
 	"${CMAKE_CURRENT_BINARY_DIR}/../include"
 	"${CMAKE_CURRENT_SOURCE_DIR}/../include"
 )
 
-install(TARGETS spl DESTINATION "${CMAKE_INSTALL_LIBDIR}")
+install(TARGETS SPL DESTINATION "${CMAKE_INSTALL_LIBDIR}")
 install(FILES ${spl_headers} DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}/SPL")
