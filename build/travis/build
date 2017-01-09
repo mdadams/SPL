@@ -152,7 +152,7 @@ else
 			cmake_opts+=(-H"$test_dir" -B"$test_dir")
 			cmake_opts+=(-G "Unix Makefiles")
 			cmake_opts+=(-DSPL_INCLUDE_DIRS="$install_dir/include")
-			cmake_opts+=(-DSPL_LIBRARY_DIR="$install_dir/lib")
+			cmake_opts+=(-DSPL_LIBRARY_DIRS="$install_dir/lib")
 			cmake_opts+=(-DSPL_LIBRARIES="SPL")
 			CMAKE_PREFIX_PATH=$cmake_prefix_path \
 			  cmake "${cmake_opts[@]}" || panic "cmake failed"
