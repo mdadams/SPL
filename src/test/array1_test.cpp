@@ -133,9 +133,13 @@ void doTest()
 
 	{
 		RealArray1 a0 = realArr;
-		a0.save("/tmp/foo.dat");
-		int result = a0.load("/tmp/foo.dat");
-		assert(!result);
+		std::stringstream tmpStream;
+		tmpStream << a0;
+		assert(tmpStream);
+		tmpStream.seekp(0);
+		a0 = RealArray1();
+		tmpStream >> a0;
+		assert(tmpStream);
 		assert(a0 == realArr);
 	}
 

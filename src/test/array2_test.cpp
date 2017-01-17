@@ -179,9 +179,12 @@ void doTest()
 
 	{
 		RealArray2 a0 = realArr;
-		a0.save("/tmp/foo.dat");
-		int result = a0.load("/tmp/foo.dat");
-		assert(!result);
+		std::stringstream tmpStream;
+		tmpStream << a0;
+		assert(tmpStream);
+		a0 = RealArray2();
+		tmpStream >> a0;
+		assert(tmpStream);
 		assert(a0 == realArr);
 	}
 
@@ -278,49 +281,57 @@ std::cout << "a0 " << a0 << "\n";
 		IntArray2 a1;
 		int maxVal;
 		bool sgnd;
-		std::fstream s("/tmp/foo.pnm", std::ios::in | std::ios::out | std::ios::trunc);
 
-		std::cout << "start\n";
-		s.seekp(0);
-		if (encodePbm(s, a0, binaryFormat)) {
-			assert(0);
+		{
+			std::stringstream s;
+			std::cout << "start\n";
+			s.seekp(0);
+			if (encodePbm(s, a0, binaryFormat)) {
+				assert(0);
+			}
+			std::cout << "a0 " << a0 << "\n";
+			s.seekp(0);
+			if (decodePbm(s, a1)) {
+				assert(0);
+			}
+			std::cout << "a1 " << a1 << "\n";
+			assert(a0 == a1);
+			std::cout << "end\n";
 		}
-std::cout << "a0 " << a0 << "\n";
-		s.seekp(0);
-		if (decodePbm(s, a1)) {
-			assert(0);
-		}
-std::cout << "a1 " << a1 << "\n";
-		assert(a0 == a1);
-		std::cout << "end\n";
 
-		std::cout << "start\n";
-		s.seekp(0);
-		if (encodePgm(s, a0, 255, false, binaryFormat)) {
-			assert(0);
+		{
+			std::stringstream s;
+			std::cout << "start\n";
+			s.seekp(0);
+			if (encodePgm(s, a0, 255, false, binaryFormat)) {
+				assert(0);
+			}
+			std::cout << "a0 " << a0 << "\n";
+			s.seekp(0);
+			if (decodePgm(s, a1, maxVal, sgnd)) {
+				assert(0);
+			}
+			std::cout << "a1 " << a1 << "\n";
+			assert(a0 == a1);
+			std::cout << "end\n";
 		}
-std::cout << "a0 " << a0 << "\n";
-		s.seekp(0);
-		if (decodePgm(s, a1, maxVal, sgnd)) {
-			assert(0);
-		}
-std::cout << "a1 " << a1 << "\n";
-		assert(a0 == a1);
-		std::cout << "end\n";
 
-		std::cout << "start\n";
-		s.seekp(0);
-		if (encodePpm(s, a0, a0, a0, 255, false, binaryFormat)) {
-			assert(0);
+		{
+			std::stringstream s;
+			std::cout << "start\n";
+			s.seekp(0);
+			if (encodePpm(s, a0, a0, a0, 255, false, binaryFormat)) {
+				assert(0);
+			}
+			std::cout << "a0 " << a0 << "\n";
+			s.seekp(0);
+			if (decodePpm(s, a0, a0, a0, maxVal, sgnd)) {
+				assert(0);
+			}
+			std::cout << "a1 " << a1 << "\n";
+			assert(a0 == a1);
+			std::cout << "end\n";
 		}
-std::cout << "a0 " << a0 << "\n";
-		s.seekp(0);
-		if (decodePpm(s, a0, a0, a0, maxVal, sgnd)) {
-			assert(0);
-		}
-std::cout << "a1 " << a1 << "\n";
-		assert(a0 == a1);
-		std::cout << "end\n";
 
 	}
 
