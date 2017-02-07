@@ -15,8 +15,9 @@ do_make_test=0
 verbose=0
 enable_asan=0
 enable_usan=0
+install_dir=
 
-while getopts AUditv- opt; do
+while getopts I:AUditv- opt; do
 	case $opt in
 	A)
 		enable_asan=1;;
@@ -30,6 +31,8 @@ while getopts AUditv- opt; do
 		do_make_test=1;;
 	v)
 		verbose=1;;
+	I)
+		install_dir="$OPTARG";;
 	-)
 		break;;
 	\?)
@@ -47,7 +50,9 @@ fi
 source_dir="$abs_cmd_dir/.."
 tmp_dir="$source_dir/tmp_cmake"
 build_dir="$tmp_dir/build"
-install_dir="$tmp_dir/install"
+if [ -z "$install_dir" ]; then
+	install_dir="$tmp_dir/install"
+fi
 
 echo "source directory $source_dir"
 echo "build directory $build_dir"
