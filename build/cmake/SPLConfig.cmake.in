@@ -10,4 +10,12 @@ set_and_check(SPL_SYSCONFIG_DIR
   "${SPL_LIBRARY_DIRS}/cmake/@PROJECT_NAME@")
 find_library(SPL_LIBRARIES SPL HINTS ${SPL_LIBRARY_DIRS})
 
+# Use preconfigured settings for SndFile library if appropriate.
+if (NOT SPL_IGNORE_PRECONFIGURED_SNDFILE)
+	set(SNDFILE_FOUND @SNDFILE_FOUND@)
+	set(SNDFILE_INCLUDE_DIRS "@SNDFILE_INCLUDE_DIRS@")
+	#set(SNDFILE_LIBRARY_DIRS "@SNDFILE_LIBRARY_DIRS@")
+	set(SNDFILE_LIBRARIES "@SNDFILE_LIBRARIES@")
+endif()
+
 #check_required_components(@PROJECT_NAME@)
