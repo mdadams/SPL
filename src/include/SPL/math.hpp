@@ -104,7 +104,7 @@ inline T signum(T x)
  */
 
 template <class T>
-T sqr(const T& x)
+inline T sqr(const T& x)
 {
 	return x * x;
 }
