@@ -9,6 +9,13 @@ linux)
 	sudo apt-get install libjpeg-turbo8 libjpeg-turbo8-dev
 	sudo apt-get install libcgal-dev
 	sudo apt-get install libcgal10
+	#sudo apt-add-repository "deb http://apt.llvm.org/trusty/ llvm-toolchain-trusty-4.0 main"
+	sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
+	sudo apt-get update -qq
+	#sudo apt-get install -qq clang++-4.0
+	sudo apt-get install -qq g++-4.8
+	#export CXX="clang++-4.0"
+	export CXX="g++-4.8"
 	;;
 osx)
 	brew update
