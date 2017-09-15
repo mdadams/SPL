@@ -22,6 +22,9 @@
 // Define this symbol if the C++ TR1 bessel functions are available.
 #cmakedefine SPL_HAVE_TR1_BESSEL
 
+// Define this symbol if the C++ bessel functions are available.
+#cmakedefine SPL_HAVE_STD_BESSEL
+
 // Define this symbol if the glut.h header file is in the GL directory.
 #cmakedefine SPL_HAVE_GL_GLUT_H
 

@@ -40,11 +40,12 @@
 #include <iostream>
 #include <cmath>
 #include <cassert>
-#if defined(SPL_HAVE_TR1_BESSEL)
-#include <tr1/cmath>
-#else
-//#include <boost/math/special_functions.hpp>
-#include <boost/tr1/cmath.hpp>
+#if !defined(SPL_HAVE_STD_BESSEL)
+#	if defined(SPL_HAVE_TR1_BESSEL)
+#		include <tr1/cmath>
+#	else
+#		include <boost/tr1/cmath.hpp>
+#	endif
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -242,11 +243,15 @@ inline double degToRad(double x)
 ////////////////////////////////////////////////////////////////////////////////
 
 #if defined(SPL_HAVE_TR1_BESSEL)
-// Use the bessel functions from TR1.
-using std::tr1::cyl_bessel_i;
+	using std::cyl_bessel_i;
 #else
-// Use the bessel functions from BOOST.
-using std::tr1::cyl_bessel_i;
+#	if defined(SPL_HAVE_TR1_BESSEL)
+	// Use the bessel functions from TR1.
+	using std::tr1::cyl_bessel_i;
+#	else
+	// Use the bessel functions from BOOST.
+	using std::tr1::cyl_bessel_i;
+#	endif
 #endif
 
 ////////////////////////////////////////////////////////////////////////////////

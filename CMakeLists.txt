@@ -46,7 +46,7 @@ if (NOT CMAKE_BUILD_TYPE)
 endif()
 message("CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE}")
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 if (CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU" AND SPL_ROUNDING_MATH)
 	add_definitions("-frounding-math")
@@ -90,6 +90,13 @@ check_cxx_source_compiles("
 		double x = std::tr1::cyl_bessel_i(0.0, 1.0);
 	}
 " SPL_HAVE_TR1_BESSEL)
+
+check_cxx_source_compiles("
+	#include <cmath>
+	int main() {
+		double x = std::cyl_bessel_i(0.0, 1.0);
+	}
+" SPL_HAVE_STD_BESSEL)
 
 include_directories(
   ${SPL_INCLUDE_DIRS}
