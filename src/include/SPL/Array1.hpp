@@ -686,8 +686,13 @@ template <class T>
 SPL_ARRAY1_INLINE Array1<T>& Array1<T>::operator+=(const T& value)
 {
 	unshare();
+#if 0
 	std::transform(ptr_->data_.begin(), ptr_->data_.end(),
 	  ptr_->data_.begin(), std::bind2nd(std::plus<T>(), value));
+#else
+	std::transform(ptr_->data_.begin(), ptr_->data_.end(),
+	  ptr_->data_.begin(), [=](auto x){return x + value;});
+#endif
 	return *this;
 }
 
@@ -695,8 +700,13 @@ template <class T>
 SPL_ARRAY1_INLINE Array1<T>& Array1<T>::operator-=(const T& value)
 {
 	unshare();
+#if 0
 	std::transform(ptr_->data_.begin(), ptr_->data_.end(),
 	  ptr_->data_.begin(), std::bind2nd(std::minus<T>(), value));
+#else
+	std::transform(ptr_->data_.begin(), ptr_->data_.end(),
+	  ptr_->data_.begin(), [=](auto x){return x - value;});
+#endif
 	return *this;
 }
 
@@ -704,8 +714,13 @@ template <class T>
 SPL_ARRAY1_INLINE Array1<T>& Array1<T>::operator*=(const T& value)
 {
 	unshare();
+#if 0
 	std::transform(ptr_->data_.begin(), ptr_->data_.end(),
 	  ptr_->data_.begin(), std::bind2nd(std::multiplies<T>(), value));
+#else
+	std::transform(ptr_->data_.begin(), ptr_->data_.end(),
+	  ptr_->data_.begin(), [=](auto x){return x * value;});
+#endif
 	return *this;
 }
 
@@ -713,8 +728,13 @@ template <class T>
 SPL_ARRAY1_INLINE Array1<T>& Array1<T>::operator/=(const T& value)
 {
 	unshare();
+#if 0
 	std::transform(ptr_->data_.begin(), ptr_->data_.end(),
 	  ptr_->data_.begin(), std::bind2nd(std::divides<T>(), value));
+#else
+	std::transform(ptr_->data_.begin(), ptr_->data_.end(),
+	  ptr_->data_.begin(), [=](auto x){return x / value;});
+#endif
 	return *this;
 }
 
