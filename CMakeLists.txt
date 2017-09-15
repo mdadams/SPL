@@ -24,6 +24,7 @@ set(SPL_VERSION
 ################################################################################
 
 option(SPL_ROUNDING_MATH "Add -frounding-math option to compiler" true)
+option(SPL_ENABLE_DOC "Enable building of the documentation" true)
 
 ################################################################################
 
@@ -131,4 +132,7 @@ configure_file(
 add_subdirectory(src/lib)
 add_subdirectory(src/test)
 add_subdirectory(src/demo)
-add_subdirectory(doc)
+
+if (SPL_ENABLE_DOC)
+	add_subdirectory(doc)
+endif()
