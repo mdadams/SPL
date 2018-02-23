@@ -61,10 +61,10 @@ if [ -n "$CC" ]; then
 	echo "C compiler $CC"
 fi
 
-SDE_TOP_DIR="$HOME/public/aurora_lab-gcc-6.2.0"
-SDE_GCC="$SDE_TOP_DIR/bin/gcc"
-SDE_SETUP="$SDE_TOP_DIR/bin/sde_make_setup"
-eval $("$SDE_SETUP") || panic "setup failed"
+#SDE_TOP_DIR="$HOME/public/aurora_lab-gcc-6.2.0"
+#SDE_GCC="$SDE_TOP_DIR/bin/gcc"
+#SDE_SETUP="$SDE_TOP_DIR/bin/sde_make_setup"
+#eval $("$SDE_SETUP") || panic "setup failed"
 
 if [ -e "$tmp_dir" ]; then
 	echo "Removing $tmp_dir"
