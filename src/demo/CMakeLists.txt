@@ -33,6 +33,9 @@ list(APPEND programs filterDesignDemo)
 add_executable(imageFilter imageFilter.cpp)
 list(APPEND programs imageFilter)
 
+add_executable(imageDerivative imageDerivative.cpp)
+list(APPEND programs imageDerivative)
+
 add_executable(makeAudio makeAudio.cpp)
 list(APPEND programs makeAudio)
 
