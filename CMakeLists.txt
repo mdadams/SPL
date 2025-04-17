@@ -112,7 +112,7 @@ check_cxx_source_compiles("
 
 include_directories(
   ${SPL_INCLUDE_DIRS}
-  ${CGAL_INCLUDE_DIR}
+  ${CGAL_INCLUDE_DIRS}
   ${Boost_INCLUDE_DIRS}
   ${GLUT_INCLUDE_DIR}
   ${OPENGL_INCLUDE_DIR}
